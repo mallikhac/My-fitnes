@@ -13,12 +13,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const workoutSchedule = {
-        Monday: 'Chest & Triceps',
-        Tuesday: 'Back & Biceps',
-        Wednesday: 'Legs & Shoulders',
-        Thursday: 'Chest & Triceps',
-        Friday: 'Back & Biceps',
-        Saturday: 'Legs & Shoulders',
+        Monday: { 
+            title: 'Chest & Triceps',
+            exercises: ['Bench Press (4 sets)', 'Incline Dumbbell Press (3 sets)', 'Chest Dips (3 sets)', 'Tricep Pushdowns (4 sets)', 'Skull Crushers (3 sets)']
+        },
+        Tuesday: {
+            title: 'Back & Biceps',
+            exercises: ['Pull-Ups (4 sets)', 'Bent Over Rows (4 sets)', 'Lat Pulldowns (3 sets)', 'Barbell Curls (4 sets)', 'Hammer Curls (3 sets)']
+        },
+        Wednesday: {
+            title: 'Legs & Shoulders',
+            exercises: ['Squats (4 sets)', 'Leg Press (4 sets)', 'Romanian Deadlifts (3 sets)', 'Overhead Press (4 sets)', 'Lateral Raises (3 sets)']
+        },
+        Thursday: {
+            title: 'Chest & Triceps',
+            exercises: ['Dumbbell Bench Press (4 sets)', 'Machine Chest Fly (3 sets)', 'Close Grip Bench Press (4 sets)', 'Overhead Tricep Extension (3 sets)']
+        },
+        Friday: {
+            title: 'Back & Biceps',
+            exercises: ['Deadlifts (4 sets)', 'T-Bar Rows (4 sets)', 'Seated Cable Rows (3 sets)', 'Dumbbell Curls (4 sets)', 'Preacher Curls (3 sets)']
+        },
+        Saturday: {
+            title: 'Legs & Shoulders',
+            exercises: ['Lunges (4 sets)', 'Leg Curls (4 sets)', 'Calf Raises (5 sets)', 'Arnold Press (4 sets)', 'Face Pulls (3 sets)']
+        },
     };
 
     const dietSuggestions = [
@@ -32,9 +50,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const workoutContainer = document.getElementById('workout-schedule');
     for (const day in workoutSchedule) {
-        const workout = document.createElement('div');
-        workout.innerHTML = `<strong>${day}:</strong> ${workoutSchedule[day]}`;
-        workoutContainer.appendChild(workout);
+        const dayData = workoutSchedule[day];
+        const workoutEl = document.createElement('div');
+        
+        let exercisesHtml = '<ul>';
+        dayData.exercises.forEach(exercise => {
+            exercisesHtml += `<li>${exercise}</li>`;
+        });
+        exercisesHtml += '</ul>';
+
+        workoutEl.innerHTML = `<strong>${day}: ${dayData.title}</strong>${exercisesHtml}`;
+        workoutContainer.appendChild(workoutEl);
     }
 
     const suggestionsContainer = document.getElementById('suggestions');
