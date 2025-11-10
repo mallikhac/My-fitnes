@@ -1,9 +1,13 @@
-const CACHE_NAME = 'fitness-tracker-cache-v3';
+const CACHE_NAME = 'fitness-tracker-cache-v4';
 const urlsToCache = [
   '/',
   '/index.html',
+  '/workouts.html',
+  '/diet.html',
   '/style.css',
   '/script.js',
+  '/workouts.js',
+  '/diet.js',
   '/manifest.json'
   // NOTE: You would also add your icon files here, e.g., '/images/icon-192x192.png'
 ];

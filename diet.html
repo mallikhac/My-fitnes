@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet Tracker - My Goal and Fitness</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#333"/>
+</head>
+<body>
+    <header>
+        <h1>Diet & Nutrition</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="workouts.html">Workouts</a>
+            <a href="diet.html">Diet</a>
+        </nav>
+    </header>
+    <main>
+        <section id="diet-tracker">
+            <h2>Daily Intake</h2>
+            <form id="intake-form">
+                <input type="text" id="food-item" placeholder="Food Item">
+                <input type="number" id="calories" placeholder="Calories">
+                <button type="submit">Add Food</button>
+            </form>
+            <ul id="intake-list"></ul>
+            <p>Total Calories: <span id="total-calories">0</span></p>
+        </section>
+        <section id="diet-suggestions">
+            <h2>Diet Suggestions</h2>
+            <div id="suggestions">
+                <!-- Suggestions will be dynamically inserted here by diet.js -->
+            </div>
+        </section>
+    </main>
+    <script src="diet.js"></script>
+</body>
+</html>
