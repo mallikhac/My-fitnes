@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Goal and Fitness</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#333"/>
+</head>
+<body>
+    <header>
+        <h1>My Goal and Fitness Tracker</h1>
+    </header>
+    <main>
+        <section id="workout-plan">
+            <h2>Weekly Workout Plan</h2>
+            <div id="workout-schedule">
+                <!-- Workouts will be dynamically inserted here -->
+            </div>
+        </section>
+        <section id="progress-tracker">
+            <h2>Progress Tracker</h2>
+            <form id="progress-form">
+                <label for="current-weight">Current Weight (kg):</label>
+                <input type="number" id="current-weight" name="current-weight" step="0.1">
+                <label for="daily-steps">Daily Steps:</label>
+                <input type="number" id="daily-steps" name="daily-steps">
+                <button type="submit">Update Progress</button>
+            </form>
+        </section>
+        <section id="diet-tracker">
+            <h2>Daily Intake</h2>
+            <form id="intake-form">
+                <input type="text" id="food-item" placeholder="Food Item">
+                <input type="number" id="calories" placeholder="Calories">
+                <button type="submit">Add Food</button>
+            </form>
+            <ul id="intake-list"></ul>
+            <p>Total Calories: <span id="total-calories">0</span></p>
+        </section>
+        <section id="diet-suggestions">
+            <h2>Diet Suggestions</h2>
+            <div id="suggestions">
+                <!-- Suggestions will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
