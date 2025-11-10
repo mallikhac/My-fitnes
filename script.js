@@ -15,26 +15,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const workoutSchedule = {
         Monday: { 
             title: 'Chest & Triceps',
+            type: 'Strength Training',
             exercises: ['Bench Press (4 sets)', 'Incline Dumbbell Press (3 sets)', 'Chest Dips (3 sets)', 'Tricep Pushdowns (4 sets)', 'Skull Crushers (3 sets)']
         },
         Tuesday: {
             title: 'Back & Biceps',
+            type: 'Strength Training',
             exercises: ['Pull-Ups (4 sets)', 'Bent Over Rows (4 sets)', 'Lat Pulldowns (3 sets)', 'Barbell Curls (4 sets)', 'Hammer Curls (3 sets)']
         },
         Wednesday: {
             title: 'Legs & Shoulders',
+            type: 'Strength & Hypertrophy',
             exercises: ['Squats (4 sets)', 'Leg Press (4 sets)', 'Romanian Deadlifts (3 sets)', 'Overhead Press (4 sets)', 'Lateral Raises (3 sets)']
         },
         Thursday: {
             title: 'Chest & Triceps',
+            type: 'Hypertrophy',
             exercises: ['Dumbbell Bench Press (4 sets)', 'Machine Chest Fly (3 sets)', 'Close Grip Bench Press (4 sets)', 'Overhead Tricep Extension (3 sets)']
         },
         Friday: {
             title: 'Back & Biceps',
+            type: 'Strength & Hypertrophy',
             exercises: ['Deadlifts (4 sets)', 'T-Bar Rows (4 sets)', 'Seated Cable Rows (3 sets)', 'Dumbbell Curls (4 sets)', 'Preacher Curls (3 sets)']
         },
         Saturday: {
             title: 'Legs & Shoulders',
+            type: 'Hypertrophy',
             exercises: ['Lunges (4 sets)', 'Leg Curls (4 sets)', 'Calf Raises (5 sets)', 'Arnold Press (4 sets)', 'Face Pulls (3 sets)']
         },
     };
@@ -59,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         exercisesHtml += '</ul>';
 
-        workoutEl.innerHTML = `<strong>${day}: ${dayData.title}</strong>${exercisesHtml}`;
+        workoutEl.innerHTML = `<strong>${day}: ${dayData.title}</strong> <em>(${dayData.type})</em>${exercisesHtml}`;
         workoutContainer.appendChild(workoutEl);
     }
 
