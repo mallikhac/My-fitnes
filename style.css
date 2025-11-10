@@ -91,3 +91,11 @@ li {
     border-left: 3px solid #333;
     padding-left: 10px;
 }
+
+.exercise-gif {
+    width: 100px; /* Adjust size as needed */
+    height: auto;
+    vertical-align: middle;
+    margin-left: 15px;
+    border-radius: 5px;
+}
