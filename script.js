@@ -19,8 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const homeSection = document.getElementById('home-section');
     const workoutsSection = document.getElementById('workouts-section');
     const dietSection = document.getElementById('diet-section');
+    const progressSection = document.getElementById('progress-section');
 
-    const sections = [homeSection, workoutsSection, dietSection];
+    const sections = [homeSection, workoutsSection, dietSection, progressSection];
+
+    const cardWorkouts = document.getElementById('card-workouts');
+    const cardDiet = document.getElementById('card-diet');
+    const cardProgress = document.getElementById('card-progress');
 
     function showSection(sectionToShow) {
         sections.forEach(section => {
@@ -41,8 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
             navHome.classList.add('active');
         } else if (sectionToShow === workoutsSection) {
             navWorkouts.classList.add('active');
+            initializeWorkoutsSection();
         } else if (sectionToShow === dietSection) {
             navDiet.classList.add('active');
+            initializeDietSection();
         }
     }
 
@@ -60,6 +67,10 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         showSection(dietSection);
     });
+
+    cardWorkouts.addEventListener('click', () => showSection(workoutsSection));
+    cardDiet.addEventListener('click', () => showSection(dietSection));
+    cardProgress.addEventListener('click', () => showSection(progressSection));
 
     // Progress Tracker with localStorage
     const progressForm = document.getElementById('progress-form');

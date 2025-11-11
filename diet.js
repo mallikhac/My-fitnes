@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+function initializeDietSection() {
     const dietSuggestions = [
         'Drink at least 8 glasses of water a day.',
         'Include lean protein in every meal.',
@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const suggestionsContainer = document.getElementById('suggestions');
+    // Clear the container before adding new suggestions
+    suggestionsContainer.innerHTML = '';
     dietSuggestions.forEach(suggestion => {
         const item = document.createElement('p');
         item.textContent = suggestion;
@@ -20,21 +22,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalCaloriesEl = document.getElementById('total-calories');
     let totalCalories = 0;
 
-    intakeForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const foodItem = document.getElementById('food-item').value;
-        const calories = parseInt(document.getElementById('calories').value);
+    // Use a flag to ensure the event listener is only added once
+    if (!intakeForm.dataset.initialized) {
+        intakeForm.dataset.initialized = true;
+        intakeForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const foodItem = document.getElementById('food-item').value;
+            const calories = parseInt(document.getElementById('calories').value);
 
-        if (foodItem && calories) {
-            const listItem = document.createElement('li');
-            listItem.textContent = `${foodItem}: ${calories} calories`;
-            intakeList.appendChild(listItem);
+            if (foodItem && calories) {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${foodItem}: ${calories} calories`;
+                intakeList.appendChild(listItem);
 
-            totalCalories += calories;
-            totalCaloriesEl.textContent = totalCalories;
+                totalCalories += calories;
+                totalCaloriesEl.textContent = totalCalories;
 
-            document.getElementById('food-item').value = '';
-            document.getElementById('calories').value = '';
-        }
-    });
-});
+                document.getElementById('food-item').value = '';
+                document.getElementById('calories').value = '';
+            }
+        });
+    }
+}

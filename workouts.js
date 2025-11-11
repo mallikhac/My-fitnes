@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+function initializeWorkoutsSection() {
     const exercisesByMuscle = {
         chest: [
             { name: 'Bench Press', image: 'https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Bench-Press.gif' },
@@ -65,6 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const workoutContainer = document.getElementById('workout-plan');
+    // Clear the container before adding new workouts
+    workoutContainer.innerHTML = '';
     for (const day in weeklyPlan) {
         const dayData = weeklyPlan[day];
         const workoutEl = document.createElement('div');
@@ -87,4 +89,4 @@ document.addEventListener('DOMContentLoaded', () => {
         workoutEl.innerHTML = `<h2>${day}: ${dayData.title}</h2>${exercisesHtml}`;
         workoutContainer.appendChild(workoutEl);
     }
-});
+}
