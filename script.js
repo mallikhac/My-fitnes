@@ -30,6 +30,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 section.classList.add('hidden');
             }
         });
+
+        // Update active nav link
+        const navLinks = [navHome, navWorkouts, navDiet];
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+        });
+
+        if (sectionToShow === homeSection) {
+            navHome.classList.add('active');
+        } else if (sectionToShow === workoutsSection) {
+            navWorkouts.classList.add('active');
+        } else if (sectionToShow === dietSection) {
+            navDiet.classList.add('active');
+        }
     }
 
     navHome.addEventListener('click', (e) => {
