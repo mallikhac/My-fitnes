@@ -1,5 +1,3 @@
-// Main script for index.html - handles service worker and progress form
-
 document.addEventListener('DOMContentLoaded', () => {
     // Register the service worker
     if ('serviceWorker' in navigator) {
@@ -14,11 +12,66 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const navHome = document.getElementById('nav-home');
+    const navWorkouts = document.getElementById('nav-workouts');
+    const navDiet = document.getElementById('nav-diet');
+
+    const homeSection = document.getElementById('home-section');
+    const workoutsSection = document.getElementById('workouts-section');
+    const dietSection = document.getElementById('diet-section');
+
+    const sections = [homeSection, workoutsSection, dietSection];
+
+    function showSection(sectionToShow) {
+        sections.forEach(section => {
+            if (section === sectionToShow) {
+                section.classList.remove('hidden');
+            } else {
+                section.classList.add('hidden');
+            }
+        });
+    }
+
+    navHome.addEventListener('click', (e) => {
+        e.preventDefault();
+        showSection(homeSection);
+    });
+
+    navWorkouts.addEventListener('click', (e) => {
+        e.preventDefault();
+        showSection(workoutsSection);
+    });
+
+    navDiet.addEventListener('click', (e) => {
+        e.preventDefault();
+        showSection(dietSection);
+    });
+
+    // Progress Tracker with localStorage
     const progressForm = document.getElementById('progress-form');
+    const currentWeightInput = document.getElementById('current-weight');
+    const dailyStepsInput = document.getElementById('daily-steps');
+
+    // Load saved progress
+    const savedWeight = localStorage.getItem('currentWeight');
+    const savedSteps = localStorage.getItem('dailySteps');
+
+    if (savedWeight) {
+        currentWeightInput.value = savedWeight;
+    }
+    if (savedSteps) {
+        dailyStepsInput.value = savedSteps;
+    }
+
     if (progressForm) {
         progressForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('Progress updated!');
+            localStorage.setItem('currentWeight', currentWeightInput.value);
+            localStorage.setItem('dailySteps', dailyStepsInput.value);
+            alert('Progress updated and saved!');
         });
     }
+
+    // Show home section by default
+    showSection(homeSection);
 });

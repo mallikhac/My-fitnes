@@ -133,3 +133,12 @@ li {
 .workout-day:hover {
     transform: translateY(-5px);
 }
+
+.hidden {
+    display: none;
+}
+
+nav a.active {
+    background-color: #ddd;
+    color: black;
+}
